@@ -5,17 +5,15 @@ import type { Category, DisabilityType } from '../data/types';
 interface CategoryCardProps {
     category: Category & { isExpanded?: boolean };
     onClick: (category: Category) => void;
-    onViewIssues: (category: Category) => void;
     translations?: Record<string, string>;
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({
     category,
     onClick,
-    onViewIssues,
     translations = {}
 }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded] = useState(false);
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter' || event.key === ' ') {

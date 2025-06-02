@@ -537,7 +537,6 @@ const Dashboard: React.FC = () => {
                                         key={category.id}
                                         category={category}
                                         onClick={handleCategoryClick}
-                                        onViewIssues={handleCategoryClick}
                                         translations={{
                                             'progress': t('progress'),
                                             'passed': t('passed'),
