@@ -1,0 +1,294 @@
+{
+    "domain": "ninjascan.ai",
+    "lastScanDate": "2024-01-15T10:30:00Z",
+    "overallScore": 65,
+    "wcagScore": 68,
+    "en301549Score": 62,
+    "totalIssues": 86,
+    "complianceStatus": "Semi Compliant",
+    "riskLevel": "High",
+    "executiveSummary": {
+        "totalElements": 234,
+        "passedElements": 148,
+        "failedElements": 86,
+        "compliancePercentage": 63,
+        "quickWinsAvailable": 24,
+        "priorityIssues": 12,
+        "estimatedFixTime": "2-3 days"
+    },
+    "categories": [
+        {
+            "id": "blind",
+            "name": "Blind",
+            "icon": "Eye",
+            "passed": 18,
+            "failed": 26,
+            "total": 44,
+            "score": 41,
+            "riskLevel": "High",
+            "affectedDisabilities": [
+                "visual"
+            ],
+            "aiFixableCount": 15,
+            "manualReviewCount": 11,
+            "issues": [
+                {
+                    "id": "blind-1",
+                    "wcagId": "1.1.1",
+                    "enClause": "9.1.1.1",
+                    "description": "Identical img 'alt' values for different images",
+                    "severity": "A",
+                    "category": "blind",
+                    "impact": "High",
+                    "aiFixable": true,
+                    "widgetFixable": false,
+                    "element": "img",
+                    "location": "Header navigation",
+                    "codeSnippet": "<img src=\"logo.png\" alt=\"Company Logo\">\n<img src=\"icon.png\" alt=\"Company Logo\">",
+                    "fixDescription": "Write each image's alt attribute to uniquely describe that image's meaning or purpose. Different images should not have identical alt text.",
+                    "affectedDisabilities": [
+                        "visual"
+                    ],
+                    "remediationDifficulty": "Easy",
+                    "isManualReviewRequired": false
+                },
+                {
+                    "id": "blind-2",
+                    "wcagId": "1.3.1",
+                    "enClause": "9.1.3.1",
+                    "description": "The 'alt' attribute contains extraneous text",
+                    "severity": "A",
+                    "category": "blind",
+                    "impact": "Medium",
+                    "aiFixable": true,
+                    "widgetFixable": false,
+                    "element": "img",
+                    "location": "Product showcase",
+                    "codeSnippet": "<img src=\"product.jpg\" alt=\"Image of our amazing product showcase display\">",
+                    "fixDescription": "Remove extraneous words like 'image of' or 'picture of' from alt text. Simply describe what the image shows or its purpose.",
+                    "affectedDisabilities": [
+                        "visual"
+                    ],
+                    "remediationDifficulty": "Easy",
+                    "isManualReviewRequired": false
+                },
+                {
+                    "id": "blind-3",
+                    "wcagId": "2.4.4",
+                    "enClause": "9.2.4.4",
+                    "description": "Skip link missing for user to skip navigation or other repetitive content",
+                    "severity": "A",
+                    "category": "blind",
+                    "impact": "High",
+                    "aiFixable": true,
+                    "widgetFixable": true,
+                    "element": "nav",
+                    "location": "Main navigation",
+                    "codeSnippet": "<nav>\n  <ul>\n    <li><a href=\"/home\">Home</a></li>\n    <li><a href=\"/about\">About</a></li>\n    ...",
+                    "fixDescription": "Add a skip link at the beginning of the page that allows users to bypass navigation and go directly to main content.",
+                    "affectedDisabilities": [
+                        "visual",
+                        "motor"
+                    ],
+                    "remediationDifficulty": "Medium",
+                    "isManualReviewRequired": false
+                }
+            ]
+        },
+        {
+            "id": "deafblind",
+            "name": "Deafblind",
+            "icon": "EyeOff",
+            "passed": 3,
+            "failed": 16,
+            "total": 19,
+            "score": 16,
+            "riskLevel": "High",
+            "affectedDisabilities": [
+                "visual",
+                "hearing"
+            ],
+            "aiFixableCount": 8,
+            "manualReviewCount": 8,
+            "issues": [
+                {
+                    "id": "deafblind-1",
+                    "wcagId": "1.1.1",
+                    "enClause": "9.1.1.1",
+                    "description": "Identical img 'alt' values for different images",
+                    "severity": "A",
+                    "category": "deafblind",
+                    "impact": "Critical",
+                    "aiFixable": true,
+                    "widgetFixable": false,
+                    "element": "img",
+                    "location": "Gallery section",
+                    "codeSnippet": "<img src=\"gallery1.jpg\" alt=\"Gallery image\">\n<img src=\"gallery2.jpg\" alt=\"Gallery image\">",
+                    "fixDescription": "Each gallery image needs unique, descriptive alt text that conveys the specific content or purpose of that particular image.",
+                    "affectedDisabilities": [
+                        "visual",
+                        "hearing"
+                    ],
+                    "remediationDifficulty": "Medium",
+                    "isManualReviewRequired": true
+                }
+            ]
+        },
+        {
+            "id": "mobility",
+            "name": "Mobility",
+            "icon": "Move",
+            "passed": 0,
+            "failed": 16,
+            "total": 16,
+            "score": 0,
+            "riskLevel": "High",
+            "affectedDisabilities": [
+                "motor"
+            ],
+            "aiFixableCount": 4,
+            "manualReviewCount": 12,
+            "issues": [
+                {
+                    "id": "mobility-1",
+                    "wcagId": "2.1.1",
+                    "enClause": "9.2.1.1",
+                    "description": "Interactive elements should be navigable using the keyboard",
+                    "severity": "A",
+                    "category": "mobility",
+                    "impact": "High",
+                    "aiFixable": false,
+                    "widgetFixable": true,
+                    "element": "div",
+                    "location": "Footer links",
+                    "codeSnippet": "<div onclick=\"showModal()\">Click here for more info</div>",
+                    "fixDescription": "Replace div elements with proper button or link elements, or add tabindex and keyboard event handlers to make them keyboard accessible.",
+                    "affectedDisabilities": [
+                        "motor",
+                        "visual"
+                    ],
+                    "remediationDifficulty": "Medium",
+                    "isManualReviewRequired": true
+                }
+            ]
+        },
+        {
+            "id": "lowvision",
+            "name": "Low Vision",
+            "icon": "Glasses",
+            "passed": 6,
+            "failed": 10,
+            "total": 16,
+            "score": 38,
+            "riskLevel": "Medium",
+            "affectedDisabilities": [
+                "visual",
+                "elderly"
+            ],
+            "aiFixableCount": 6,
+            "manualReviewCount": 4,
+            "issues": [
+                {
+                    "id": "lowvision-1",
+                    "wcagId": "1.4.3",
+                    "enClause": "9.1.4.3",
+                    "description": "Insufficient color contrast",
+                    "severity": "AA",
+                    "category": "lowvision",
+                    "impact": "High",
+                    "aiFixable": true,
+                    "widgetFixable": true,
+                    "element": "text",
+                    "location": "Button labels",
+                    "codeSnippet": "<button style=\"background: #ccc; color: #999;\">Submit Form</button>",
+                    "fixDescription": "Increase color contrast ratio to at least 4.5:1 for normal text or 3:1 for large text. Consider using darker text or lighter background colors.",
+                    "affectedDisabilities": [
+                        "visual",
+                        "elderly",
+                        "colorblind"
+                    ],
+                    "remediationDifficulty": "Easy",
+                    "isManualReviewRequired": false
+                }
+            ]
+        },
+        {
+            "id": "cognitive",
+            "name": "Cognitive",
+            "icon": "Brain",
+            "passed": 9,
+            "failed": 9,
+            "total": 18,
+            "score": 50,
+            "riskLevel": "Medium",
+            "affectedDisabilities": [
+                "cognitive",
+                "dyslexia"
+            ],
+            "aiFixableCount": 3,
+            "manualReviewCount": 6,
+            "issues": [
+                {
+                    "id": "cognitive-1",
+                    "wcagId": "3.2.2",
+                    "enClause": "9.3.2.2",
+                    "description": "Form controls should not change context automatically",
+                    "severity": "A",
+                    "category": "cognitive",
+                    "impact": "Medium",
+                    "aiFixable": false,
+                    "widgetFixable": true,
+                    "element": "form",
+                    "location": "Contact form",
+                    "codeSnippet": "<select onchange=\"this.form.submit()\">\n  <option>Select Country</option>\n  <option>USA</option>\n</select>",
+                    "fixDescription": "Remove automatic form submission. Add a separate submit button or clearly warn users that selection will trigger form submission.",
+                    "affectedDisabilities": [
+                        "cognitive",
+                        "motor",
+                        "visual"
+                    ],
+                    "remediationDifficulty": "Medium",
+                    "isManualReviewRequired": true
+                }
+            ]
+        },
+        {
+            "id": "attention",
+            "name": "Attention Deficit",
+            "icon": "Focus",
+            "passed": 9,
+            "failed": 9,
+            "total": 18,
+            "score": 50,
+            "riskLevel": "Low",
+            "affectedDisabilities": [
+                "cognitive"
+            ],
+            "aiFixableCount": 2,
+            "manualReviewCount": 7,
+            "issues": [
+                {
+                    "id": "attention-1",
+                    "wcagId": "2.2.2",
+                    "enClause": "9.2.2.2",
+                    "description": "Auto-updating content should be pausable",
+                    "severity": "A",
+                    "category": "attention",
+                    "impact": "Medium",
+                    "aiFixable": false,
+                    "widgetFixable": true,
+                    "element": "div",
+                    "location": "Carousel banner",
+                    "codeSnippet": "<div class=\"carousel\" data-autoplay=\"true\" data-interval=\"3000\">",
+                    "fixDescription": "Add pause/play controls to auto-updating content, or provide a mechanism for users to disable automatic updates.",
+                    "affectedDisabilities": [
+                        "cognitive",
+                        "visual"
+                    ],
+                    "remediationDifficulty": "Medium",
+                    "isManualReviewRequired": true
+                }
+            ]
+        }
+    ]
+}

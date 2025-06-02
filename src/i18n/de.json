@@ -1,0 +1,56 @@
+{
+    "dashboard": {
+        "title": "Barrierefreiheits-Dashboard",
+        "scanDomain": "Domain scannen",
+        "lastScan": "Letzter Scan",
+        "rescan": "Erneut scannen",
+        "freeScan": "Kostenloser Scan",
+        "overallScore": "Gesamtbewertung Barrierefreiheit",
+        "wcagCompliance": "WCAG 2.2 Konformität",
+        "en301549Compliance": "EN 301 549 Konformität",
+        "complianceStatus": "Konformitätsstatus",
+        "riskLevel": "Risikostufe",
+        "totalIssues": "Gesamtprobleme",
+        "issuesFound": "Probleme gefunden",
+        "viewReport": "Vollständigen Bericht anzeigen",
+        "exportPdf": "PDF exportieren",
+        "exportCsv": "CSV exportieren",
+        "exportVpat": "VPAT exportieren",
+        "getStarted": "Loslegen",
+        "startFreeTrial": "Kostenlose Testversion starten",
+        "contactSupport": "Support kontaktieren"
+    },
+    "categories": {
+        "blind": "Blind",
+        "deafblind": "Taubblind",
+        "mobility": "Mobilität",
+        "lowVision": "Sehschwäche",
+        "cognitive": "Kognitiv",
+        "attention": "Aufmerksamkeitsdefizit"
+    },
+    "severity": {
+        "A": "Stufe A",
+        "AA": "Stufe AA",
+        "AAA": "Stufe AAA"
+    },
+    "impact": {
+        "Low": "Geringe Auswirkung",
+        "Medium": "Mittlere Auswirkung",
+        "High": "Hohe Auswirkung",
+        "Critical": "Kritische Auswirkung"
+    },
+    "status": {
+        "passed": "Bestanden",
+        "failed": "Fehlgeschlagen",
+        "fixable": "Behebbar",
+        "aiFixable": "KI behebbar",
+        "widgetFixable": "Widget behebbar"
+    },
+    "accessibility": {
+        "skipToContent": "Zum Hauptinhalt springen",
+        "closePanel": "Panel schließen",
+        "openPanel": "Panel öffnen",
+        "showMore": "Mehr anzeigen",
+        "showLess": "Weniger anzeigen"
+    }
+}

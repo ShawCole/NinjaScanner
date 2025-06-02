@@ -1,0 +1,56 @@
+{
+    "dashboard": {
+        "title": "Panel de Accesibilidad",
+        "scanDomain": "Escanear Dominio",
+        "lastScan": "Último escaneo",
+        "rescan": "Re-escanear",
+        "freeScan": "Escaneo Gratuito",
+        "overallScore": "Puntuación General de Accesibilidad",
+        "wcagCompliance": "Cumplimiento WCAG 2.2",
+        "en301549Compliance": "Cumplimiento EN 301 549",
+        "complianceStatus": "Estado de Cumplimiento",
+        "riskLevel": "Nivel de Riesgo",
+        "totalIssues": "Problemas Totales",
+        "issuesFound": "problemas encontrados",
+        "viewReport": "Ver Informe Completo",
+        "exportPdf": "Exportar PDF",
+        "exportCsv": "Exportar CSV",
+        "exportVpat": "Exportar VPAT",
+        "getStarted": "Comenzar",
+        "startFreeTrial": "Iniciar Prueba Gratuita",
+        "contactSupport": "Contactar Soporte"
+    },
+    "categories": {
+        "blind": "Ciego",
+        "deafblind": "Sordociego",
+        "mobility": "Movilidad",
+        "lowVision": "Baja Visión",
+        "cognitive": "Cognitivo",
+        "attention": "Déficit de Atención"
+    },
+    "severity": {
+        "A": "Nivel A",
+        "AA": "Nivel AA",
+        "AAA": "Nivel AAA"
+    },
+    "impact": {
+        "Low": "Impacto Bajo",
+        "Medium": "Impacto Medio",
+        "High": "Impacto Alto",
+        "Critical": "Impacto Crítico"
+    },
+    "status": {
+        "passed": "Aprobado",
+        "failed": "Fallido",
+        "fixable": "Solucionable",
+        "aiFixable": "Solucionable con IA",
+        "widgetFixable": "Solucionable con Widget"
+    },
+    "accessibility": {
+        "skipToContent": "Saltar al contenido principal",
+        "closePanel": "Cerrar panel",
+        "openPanel": "Abrir panel",
+        "showMore": "Mostrar más",
+        "showLess": "Mostrar menos"
+    }
+}
