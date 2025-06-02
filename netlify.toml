@@ -2,8 +2,20 @@
   command = "npm run build"
   publish = "dist"
 
-# Disable the Next.js plugin since this is a Vite project
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--production=false"
+
+# Disable framework detection to prevent conflicts
+[build.processing]
+  skip_processing = false
+
+# Disable all auto-detected plugins
 [[plugins]]
   package = "@netlify/plugin-nextjs"
   [plugins.inputs]
-    disable = true 
+    disable = true
+
+# Ensure we're using Node.js runtime only
+[context.production.environment]
+  NODE_ENV = "production" 
