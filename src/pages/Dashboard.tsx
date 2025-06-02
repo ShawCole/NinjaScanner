@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Search, RefreshCw, MessageCircle, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { MessageCircle } from 'lucide-react';
 import GaugeMeter from '../components/GaugeMeter';
 import CategoryCard from '../components/CategoryCard';
 import IssuePanel from '../components/IssuePanel';
@@ -500,7 +500,6 @@ const Dashboard: React.FC = () => {
                             {scanResult && (
                                 <ExecutiveSummary
                                     scanResult={scanResult}
-                                    t={t}
                                 />
                             )}
 
@@ -538,8 +537,12 @@ const Dashboard: React.FC = () => {
                                         key={category.id}
                                         category={category}
                                         onClick={handleCategoryClick}
-                                        isSelected={selectedCategory?.id === category.id}
-                                        t={t}
+                                        onViewIssues={handleCategoryClick}
+                                        translations={{
+                                            'progress': t('progress'),
+                                            'passed': t('passed'),
+                                            'failed': t('failed')
+                                        }}
                                     />
                                 ))}
                             </div>

@@ -12,7 +12,6 @@ import {
     Volume2,
     Glasses,
     Code,
-    AlertTriangle,
     CheckCircle,
     Clock
 } from 'lucide-react';
@@ -20,12 +19,10 @@ import { Issue, DisabilityType } from '../data/types';
 
 interface EnhancedIssueCardProps {
     issue: Issue;
-    t?: (key: string) => string;
 }
 
 const EnhancedIssueCard: React.FC<EnhancedIssueCardProps> = ({
-    issue,
-    t = (key) => key
+    issue
 }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 

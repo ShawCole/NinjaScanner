@@ -1,14 +1,12 @@
 import React from 'react';
-import { AlertTriangle, CheckCircle, Clock, Zap, Target, TrendingUp } from 'lucide-react';
+import { Clock, Zap, Target, TrendingUp } from 'lucide-react';
 import { ScanResult } from '../data/types';
-import GaugeMeter from './GaugeMeter';
 
 interface ExecutiveSummaryProps {
     scanResult: ScanResult;
-    t: (key: string) => string;
 }
 
-const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ scanResult, t }) => {
+const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ scanResult }) => {
     const { executiveSummary, overallScore, complianceStatus, riskLevel } = scanResult;
 
     const getRiskColor = (risk: string) => {

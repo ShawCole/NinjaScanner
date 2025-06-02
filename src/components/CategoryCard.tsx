@@ -1,20 +1,22 @@
-import React from 'react';
-import { ChevronDown, ChevronRight, Eye, Move, Brain, Volume2, User, Glasses, EyeOff, Bot, AlertTriangle } from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronDown, ChevronRight, Eye, Move, Brain, Volume2, User, Glasses, EyeOff, Bot } from 'lucide-react';
 import type { Category, DisabilityType } from '../data/types';
 
 interface CategoryCardProps {
     category: Category & { isExpanded?: boolean };
     onClick: (category: Category) => void;
-    isSelected?: boolean;
-    t?: (key: string) => string;
+    onViewIssues: (category: Category) => void;
+    translations?: Record<string, string>;
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({
     category,
     onClick,
-    isSelected = false,
-    t = (key) => key // Default translation function
+    onViewIssues,
+    translations = {}
 }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
@@ -22,9 +24,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
         }
     };
 
-    // Calculate percentage
-    const totalIssues = category.passed + category.failed;
-    const passPercentage = totalIssues > 0 ? (category.passed / totalIssues) * 100 : category.score;
+    // Calculate total issues
+    const totalIssues = category.total;
 
     // Determine color scheme based on compliance level
     const getStatusColors = () => {
@@ -87,14 +88,14 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
         bg-gradient-to-br ${colors.bg} ${colors.border} border-2 rounded-xl p-6 
         cursor-pointer transition-all duration-200 hover:shadow-soft-lg
         focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2
-        ${isSelected ? 'ring-2 ring-primary-500 shadow-soft-lg' : ''}
+        ${isExpanded ? 'ring-2 ring-primary-500 shadow-soft-lg' : ''}
       `}
             onClick={() => onClick(category)}
             onKeyDown={handleKeyDown}
             tabIndex={0}
             role="button"
-            aria-expanded={isSelected}
-            aria-label={`${category.name} category, ${category.passed} passed, ${category.failed} failed. ${isSelected ? 'Selected' : 'Not selected'}`}
+            aria-expanded={isExpanded}
+            aria-label={`${category.name} category, ${category.passed} passed, ${category.failed} failed. ${isExpanded ? 'Selected' : 'Not selected'}`}
         >
             <div className="flex items-center justify-between mb-4">
                 <h3 className={`text-lg font-semibold ${colors.text}`}>
@@ -109,7 +110,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
                             {category.riskLevel}
                         </span>
                     )}
-                    {isSelected ? (
+                    {isExpanded ? (
                         <ChevronDown className={`w-5 h-5 ${colors.icon}`} aria-hidden="true" />
                     ) : (
                         <ChevronRight className={`w-5 h-5 ${colors.icon}`} aria-hidden="true" />
@@ -144,9 +145,9 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
                 {/* Progress Bar */}
                 <div>
                     <div className="flex justify-between text-sm mb-2">
-                        <span className="text-neutral-600">{t('progress')}</span>
+                        <span className="text-neutral-600">{translations['progress']}</span>
                         <span className={`font-medium ${colors.text}`}>
-                            {category.passed}/{totalIssues} {t('passed')}
+                            {category.passed}/{totalIssues} {translations['passed']}
                         </span>
                     </div>
                     <div className="w-full bg-white/60 rounded-full h-2 overflow-hidden">
@@ -168,13 +169,13 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
                         <div className="text-2xl font-bold text-success-600">
                             {category.passed}
                         </div>
-                        <div className="text-sm text-neutral-600">{t('passed')}</div>
+                        <div className="text-sm text-neutral-600">{translations['passed']}</div>
                     </div>
                     <div className="text-center">
                         <div className="text-2xl font-bold text-error-600">
                             {category.failed}
                         </div>
-                        <div className="text-sm text-neutral-600">{t('failed')}</div>
+                        <div className="text-sm text-neutral-600">{translations['failed']}</div>
                     </div>
                 </div>
 
@@ -191,7 +192,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
 
             {/* Screen reader content */}
             <div className="sr-only">
-                Click or press Enter to {isSelected ? 'view details for' : 'select'} {category.name} category.
+                Click or press Enter to {isExpanded ? 'view details for' : 'select'} {category.name} category.
                 Category contains {category.total} total issues.
                 {category.aiFixableCount && category.aiFixableCount > 0 &&
                     ` ${category.aiFixableCount} issues can be automatically fixed.`

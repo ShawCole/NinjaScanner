@@ -21,7 +21,7 @@ const PersistentScreenshot: React.FC<PersistentScreenshotProps> = ({
     onScreenshotCaptured,
     persistedScreenshot
 }) => {
-    const { data: screenshot, loading, error } = useScreenshot(persistedScreenshot ? undefined : `https://${domain.replace(/^https?:\/\//, '')}`);
+    const { data: screenshot } = useScreenshot(persistedScreenshot ? undefined : `https://${domain.replace(/^https?:\/\//, '')}`);
 
     // Notify parent when screenshot is captured
     useEffect(() => {
@@ -30,9 +30,6 @@ const PersistentScreenshot: React.FC<PersistentScreenshotProps> = ({
             onScreenshotCaptured(screenshot);
         }
     }, [screenshot, onScreenshotCaptured, persistedScreenshot]);
-
-    // Use persisted screenshot if available, otherwise use the live one
-    const displayScreenshot = persistedScreenshot || screenshot;
 
     console.log('🔍 PersistentScreenshot render:', {
         domain,
