@@ -10,12 +10,6 @@
 [build.processing]
   skip_processing = false
 
-# Disable all auto-detected plugins
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-  [plugins.inputs]
-    disable = true
-
 # Ensure we're using Node.js runtime only
 [context.production.environment]
   NODE_ENV = "production" 
